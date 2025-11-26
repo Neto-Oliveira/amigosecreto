@@ -1,4 +1,4 @@
-const URL_API = "https://script.google.com/macros/s/AKfycbyOMndTED6B5cx0mRIq4fG3Ju4pN2bbwOPEes5JpIvy1Ue2ZPtIUKc9DN5eq3cvzYY/exec";
+const URL_API = "https://script.google.com/macros/s/AKfycbyIIr6IDqytpyZHztW7f7JnzxC2NQnlfvVN57648ShbqYT9Egj-mlJ_aB302yV513dJ/exec";
 
 document.getElementById("btn").onclick = async () => {
   const nomeInformado = prompt("Digite APENAS o seu primeiro nome:");
