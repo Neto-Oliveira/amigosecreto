@@ -1,10 +1,10 @@
-const URL_API = "https://script.google.com/macros/s/AKfycbyIIr6IDqytpyZHztW7f7JnzxC2NQnlfvVN57648ShbqYT9Egj-mlJ_aB302yV513dJ/exec";
+const URL_API = "https://script.google.com/macros/s/AKfycbwlNRso199VzHyZCZgJKeNisZiVclVnHEIdgXIas1N3Lh0VO7CLwlXgGJ7RM7kwkomx/exec";
 
 document.getElementById("btn").onclick = async () => {
   const nomeInformado = prompt("Digite APENAS o seu primeiro nome:");
 
   if (!nomeInformado || nomeInformado.trim() === "") {
-    alert("Você precisa informar seu nome!");
+    alert("Você precisa informar o nome!");
     return;
   }
 
@@ -17,19 +17,21 @@ document.getElementById("btn").onclick = async () => {
     const data = await res.json();
 
     if (data.status === "ja_sorteou") {
-      alert("Você já fez seu sorteio!");
-    } 
+      alert("Você já realizou seu sorteio!");
+    }
     else if (data.status === "ok") {
-      document.getElementById("nome").innerText = data.sorteado;
+      document.getElementById("nome").innerText = data.nome;
+      document.getElementById("cep").innerText = data.cep;
+      document.getElementById("endereco").innerText = data.endereco;
       document.getElementById("card").style.display = "block";
-    } 
+    }
     else {
       alert(data.message || "Erro inesperado.");
     }
 
   } catch (err) {
-    console.log(err);
-    alert("Erro ao chamar API.");
+    console.error(err);
+    alert("Erro ao conectar com a API.");
   }
 
   btn.disabled = false;
